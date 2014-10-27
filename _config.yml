@@ -11,10 +11,10 @@ markdown: kramdown
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : MOSAアーキテクト技術ブログ
+title : MOSAラボ!!
 tagline: Site Tagline
 author :
-  name : Name Lastname
+  name : MOSA Architect Inc.
   email : blah@email.test
   github : username
   twitter : username
