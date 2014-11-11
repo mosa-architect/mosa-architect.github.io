@@ -1,3 +1,7 @@
+/* Global */
+body {
+    /*font-family: "Open Sans",Helvetica,Arial,sans-serif,"mplus-1p-regular";*/
+}
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
@@ -32,6 +36,7 @@
 .tag_box {
   list-style: none;
   margin: 0;
+  padding:5px 0;
   overflow: hidden; }
 
 .tag_box li {

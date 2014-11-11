@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
 
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:type" content="blog">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="{{ site.production_url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.production_url }}/img/thumb.png">
+
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!--
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://mplus-fonts.sourceforge.jp/webfonts/mplus_webfonts.css">
+-->
     <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet">
   
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
@@ -17,10 +28,12 @@
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -29,14 +42,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <a class="navbar-brand" href="{{ HOME_PATH }}">
+            {{ site.title }}
+          </a>
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">記事リスト</a></li>
+        <!--
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
             {% include JB/pages_list %}
+        -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.mosa-architect.com" target="_blank">MOSAアーキテクト株式会社</a></li>
           </ul>
         </div>
       </div>
@@ -46,7 +67,8 @@
       <hr>
       <footer>
         <p>
-          &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+          &copy; {{ site.time | date: '%Y' }} 
+          <a href="http://www.mosa-architect.com">{{ site.author.name }}</a>
           <span class="pull-right text-muted">
             powered by
             <a href="http://dbtek.github.io/jekyll-bootstrap-3" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll-Bootstrap-3</a>
