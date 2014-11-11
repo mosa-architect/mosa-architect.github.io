@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  {% if page.url == "/index.html" %}<head prefix="og: http://ogp.me/ns#  website: http://ogp.me/ns/website#">{% endif %}
+  {% if page.url != "/index.html" %}<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">{% endif %}
     <meta charset="utf-8">
 
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
-    <meta property="og:type" content="blog">
-    <meta property="og:description" content="{{ page.description }}">
-    <meta property="og:url" content="{{ site.production_url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.url == "/index.html" %}<meta property="og:type" content="website">{% endif %}
+    {% if page.url != "/index.html" %}<meta property="og:type" content="article">{% endif %}
+    {% if page.description %}<meta property="og:description" content="{{ page.description }}">{% endif %}
+    {% if page.url == "/index.html" %}<meta property="og:url" content="{{ site.production_url }}">{% endif %}
+    {% if page.url != "/index.html" %}<meta property="og:url" content="{{ site.production_url }}{{ page.url }}/">{% endif %}
     <meta property="og:image" content="{{ site.production_url }}/img/thumb.png">
 
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
