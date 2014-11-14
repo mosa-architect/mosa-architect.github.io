@@ -103,9 +103,9 @@ JB :
   analytics :
     provider : google
     google :
-        tracking_id : 'UA-UA-24806592-1'
+        tracking_id : 'UA-24806592-3'
     googleUA :
-        tracking_id : 'UA-UA-24806592-1'
+        tracking_id : 'UA-24806592-3'
         property_name : 'PROPERTY NAME'
     getclicky :
       site_id : 
